@@ -9,6 +9,7 @@ import productRoutes from "./routes/productRoutes.js"
 import orderRoutes from "./routes/orderRoutes.js"
 import cartRoutes from "./routes/cartRoutes.js"
 import paymentRoutes from './routes/paymentRoutes.js';
+import authMiddleware from "./middleware/authMiddleware.js";
 
 env.config();
 app.use(express.json());
@@ -23,7 +24,7 @@ app.use(
 }));
 
 app.use("/api/auth",authRoutes)
-app.use('/api/products', productRoutes);
+app.use('/api/products',authMiddleware, productRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/cart', cartRoutes);
 app.use('/api/payments', paymentRoutes);

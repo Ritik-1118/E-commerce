@@ -2,15 +2,21 @@ import User from "../models/User.js";
 
 export const register = async ( req, res ) => {
     try {
-        const userData = req.body;
-        const UserExist = await User.findOne( userData.email );
+        const { username, email, password } = req.body;
+        const UserExist = await User.findOne( {email} );
         if ( UserExist ) {
             return res.status( 400 ).json( { msg: "Email Already exist" } );
         }
-        const Usercreated = await User.create( { userData } );
+        const Usercreated = await User.create( { 
+            username,
+            email,
+            password,
+            isAdmin:req.body?.isAdmin
+        } );
         // console.log(Usercreated)
         res.status( 201 ).json( {
             message: "Registration Succesfully",
+            token: await Usercreated.generateToken(),
         } );
     } catch ( error ) {
         console.log( error );
@@ -52,7 +58,7 @@ export const login = async ( req, res ) => {
                     maxAge: 24 * 60 * 60 * 1000
                 } )
 
-                .json( { message: "Login Succesful", UserExist } );
+                .json( { message: "Login Succesful", user:UserExist } );
         } else {
             res.status( 401 ).json( { message: "Invalid email or Password" } );
         }

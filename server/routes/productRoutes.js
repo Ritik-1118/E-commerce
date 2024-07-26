@@ -6,7 +6,7 @@ const router = express.Router();
 router.route( '/' )
     .get( getProducts )
     .post( createProduct );
-router.get('getByFilter',getProductsByFilter)
+router.get('/getByFilter',getProductsByFilter)
 
 router.route( '/:id' )
     .get( getProductById )

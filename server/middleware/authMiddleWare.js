@@ -10,6 +10,7 @@ const authMiddleware = async ( req, res, next ) => {
     }
     try {
         const isverified = jwt.verify( token, process.env.JWT_SECRET_KEY );
+        // console.log("ok here!");
         const userdata = await User.findOne( { username: isverified.username } ).select('-password');
         
         if (!userdata) {
