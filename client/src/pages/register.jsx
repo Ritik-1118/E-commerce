@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 function Register() {
+    const navigate = useNavigate();
     const [form, setForm] = useState({
         username: "",
         email: "",
@@ -37,24 +39,49 @@ function Register() {
         return isValid;
     };
 
-    const registerUser = (e) => {
+    const registerUser = async(e) => {
         e.preventDefault();
         if (!validate()) {
             return;
         }
-        console.log("Form data:", form);
+        try {
+            const response = await fetch("http://localhost/api/auth/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(form),
+            });
+
+            if (response.ok) {
+                const userData = await response.json()
+                console.log(userData)
+                toast.success("Successfully Registered, Now Login with your details");
+                navigate('/login');
+            } else {
+                const result = await response.json();
+                if (result.error) {
+                    setError({ ...error, email: result.error });
+                } else {
+                    setError({ ...error, password: "Registration failed. Please try again." });
+                }
+            }
+        } catch (err) {
+            console.error("Error registering:", err);
+            setError({ ...error, password: "Error registering. Please try again later." });
+        }
     };
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
             <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-lg">
-                <div>
+                <div className="py-2">
                     <img
-                        className="w-auto h-12 mx-auto"
-                        src="./assets/logo.png"
-                        alt="Your Company"
+                        className="w-auto h-20 rounded-full mx-auto pr-10"
+                        src="./assets/cartLogo.png"
+                        alt="Logo"
                     />
-                    <h2 className="mt-6 text-3xl font-bold text-center text-gray-900">
+                    <h2 className="mt-4 text-3xl font-bold text-center text-gray-900">
                         Register your account
                     </h2>
                 </div>

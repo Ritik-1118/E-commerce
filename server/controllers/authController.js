@@ -58,7 +58,7 @@ export const login = async ( req, res ) => {
                     maxAge: 24 * 60 * 60 * 1000
                 } )
 
-                .json( { message: "Login Succesful", user:UserExist } );
+                .json( { message: "Login Succesful", user:UserExist, token: await UserExist.generateToken(), } );
         } else {
             res.status( 401 ).json( { message: "Invalid email or Password" } );
         }
