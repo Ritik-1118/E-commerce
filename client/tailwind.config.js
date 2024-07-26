@@ -5,7 +5,11 @@ export default {
         "./src/**/*.{js,ts,jsx,tsx}",
     ],
     theme: {
-        extend: {},
+        extend: {
+            nav:"#070a34",
+            MaroonFlush:"#b42044",
+            1:""
+        },
     },
     plugins: [],
 }

@@ -20,33 +20,40 @@ export default function Navbar() {
     const user = JSON.parse(useSelector((state) => state.auth.user));
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isProfileOpen, setIsProfileOpen] = useState(false);
+    const [isChildHovered, setIsChildHovered] = useState(false);
 
     const handleLogout = async () => {
         dispatch(logout());
         window.location.reload();
     }
-
+    // console.log(isChildHovered);
     return (
         <>
-            <div className="min-h-full">
-                <nav className="bg-[#070a34]">
+            <div className={`${ !isChildHovered ? "md:-mt-12 " : ""} min-h-full my-4 group`}>
+                <nav className={`${ isChildHovered ? "bg-[#070a34]" : "md:bg-transparent bg-[#070a34]"}`}>
                     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                        <div className="flex h-16 items-center justify-between">
-                            <div className="flex items-center">
+                        <div className={`flex h-16 items-center justify-between`}>
+                            <div className={`flex items-center ${ !isChildHovered ? "md:-mb-32 text-white md:text-black" : "text-white"} `}
+                                onMouseEnter={() => {setIsChildHovered(true) }}
+                                onMouseLeave={() => {setIsChildHovered(false)}}
+                            >
                                 <div className="flex-shrink-0">
                                     <div className="flex justify-center items-center gap-2">
                                         <img
-                                            className="h-8 w-8"
+                                            className="h-10 w-10"
                                             src="/assets/cartLogo.png"
                                             alt="E-commerce logo"
                                         />
-                                        <span className="font-bold text-white italic">
+                                        <span className="font-bold font-serif text-xl italic">
                                             E-commerce
                                         </span>
                                     </div>
                                 </div>
                             </div>
-                            <div className="hidden md:flex">
+                            <div className={`hidden md:flex bg-[#070a34] rounded-full px-10 mt-6 ${ !isChildHovered && "-mb-32 "} py-2 font-serif shadow-2xl`}
+                                onMouseEnter={() => {setIsChildHovered(true) }}
+                                onMouseLeave={() => {setIsChildHovered(false)}}
+                            >
                                 {navigation.map((item) => (
                                     <Link to={item.href} key={item.name}>
                                         <button
@@ -64,7 +71,10 @@ export default function Navbar() {
                                     </Link>
                                 ))}
                             </div>
-                            <div className="hidden md:block">
+                            <div className={`hidden md:block ${ !isChildHovered && "-mb-32 "}`}
+                                onMouseEnter={() => {setIsChildHovered(true) }}
+                                onMouseLeave={() => {setIsChildHovered(false)}}
+                            >
                                 <div className="ml-4 flex items-center md:ml-6">
                                     <button
                                         type="button"
@@ -103,7 +113,10 @@ export default function Navbar() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="-mr-2 flex md:hidden">
+                            <div className={`-mr-2 flex md:hidden  ${ !isChildHovered && "md:-mb-40 "}`}
+                                onMouseEnter={() => {setIsChildHovered(true) }}
+                                onMouseLeave={() => {setIsChildHovered(false)}}
+                            >
                                 {/* Mobile menu button */}
                                 <button
                                     className="inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
@@ -122,7 +135,7 @@ export default function Navbar() {
 
                     {/* for mobile size */}
                     {isMenuOpen && (
-                        <div className="md:hidden">
+                        <div className={`md:hidden `}>
                             <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
                                 {navigation.map((item) => (
                                     <Link to={item.href} key={item.name}>
