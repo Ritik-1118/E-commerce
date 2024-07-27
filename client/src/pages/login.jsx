@@ -56,9 +56,9 @@ export const Login = () => {
                 const userData = await response.json();
                 dispatch( login( { user: userData.user, token: userData.token } ) );
                 toast.success("Login Successfully!");
-                console.log("userData",userData)
+                // console.log("userData",userData)
                 navigate('/');
-                // window.location.reload();
+                window.location.reload();
             } else {
                 setError({ ...error, password: "Invalid username or password" });
             }

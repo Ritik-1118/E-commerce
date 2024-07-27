@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../Redux/Slice/authSlice";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { HiOutlineShoppingCart } from "react-icons/hi";
+
 
 const navigation = [
     { name: "Home", href: "/", current: true },
@@ -29,14 +31,11 @@ export default function Navbar() {
     // console.log(isChildHovered);
     return (
         <>
-            <div className={`${ !isChildHovered ? "md:-mt-12 " : ""} min-h-full my-4 group`}>
-                <nav className={`${ isChildHovered ? "bg-[#070a34]" : "md:bg-transparent bg-[#070a34]"}`}>
+            <div className={` min-h-full mt-4 group`}>
+                <nav className={`bg-[#070a34]`}>
                     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                         <div className={`flex h-16 items-center justify-between`}>
-                            <div className={`flex items-center ${ !isChildHovered ? "md:-mb-32 text-white md:text-black" : "text-white"} `}
-                                onMouseEnter={() => {setIsChildHovered(true) }}
-                                onMouseLeave={() => {setIsChildHovered(false)}}
-                            >
+                            <div className={`flex items-center text-white `}>
                                 <div className="flex-shrink-0">
                                     <div className="flex justify-center items-center gap-2">
                                         <img
@@ -50,10 +49,7 @@ export default function Navbar() {
                                     </div>
                                 </div>
                             </div>
-                            <div className={`hidden md:flex bg-[#070a34] rounded-full px-10 mt-6 ${ !isChildHovered && "-mb-32 "} py-2 font-serif shadow-2xl`}
-                                onMouseEnter={() => {setIsChildHovered(true) }}
-                                onMouseLeave={() => {setIsChildHovered(false)}}
-                            >
+                            <div className={`hidden md:flex bg-[#070a34] rounded-full px-10 mt-10  py-2 font-serif shadow-2xl`}>
                                 {navigation.map((item) => (
                                     <Link to={item.href} key={item.name}>
                                         <button
@@ -71,14 +67,17 @@ export default function Navbar() {
                                     </Link>
                                 ))}
                             </div>
-                            <div className={`hidden md:block ${ !isChildHovered && "-mb-32 "}`}
-                                onMouseEnter={() => {setIsChildHovered(true) }}
-                                onMouseLeave={() => {setIsChildHovered(false)}}
-                            >
+                            <div className={`hidden md:block `}>
                                 <div className="ml-4 flex items-center md:ml-6">
                                     <button
                                         type="button"
-                                        className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                                        className="rounded-full hover:border-gray-300 text-2xl pr-4 p-2 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                                    >
+                                        <HiOutlineShoppingCart />
+                                    </button>
+                                    <button
+                                        type="button"
+                                        className="rounded-full  p-1 pr-3 text-2xl text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                                     >
                                         <BellIcon className="h-6 w-6" aria-hidden="true" />
                                     </button>
