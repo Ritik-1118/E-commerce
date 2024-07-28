@@ -44,7 +44,7 @@ export default function ProdByCategory () {
                 <div className="max-w-[150px] min-w-[150px] h-fit border-2 rounded-md border-gray-400 hover:opacity-80 cursor-pointer">
                     <div className="py-5 flex flex-col items-center">
                         <CiHeadphones className="text-7xl text-gray-800"/>
-                        <span className="py-1 text-xl">Phones</span>
+                        <span className="py-1 text-xl">HeadPhones</span>
                     </div>
                 </div>
             </div>

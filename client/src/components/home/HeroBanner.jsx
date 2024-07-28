@@ -34,7 +34,7 @@ const HeroBanner = () => {
             >
                 <div>
                     <img
-                        src="./assets/prod_imgs/Laptops/MacBook pro.jpg"
+                        src="./prod_imgs/Laptops/MacBook pro.jpg"
                         className="h-[680px] w-full object-cover"
                     />
                     <div className=" flex flex-col items-start gap-2 px-[15px] md:px-[40px] py-[10px] md:py-[25px] font-oswald absolute md:bottom-[75px] left-32 top-[8rem] text-white/[0.9] text-[15px] md:text-[20px] hover:opacity-80">
@@ -55,7 +55,7 @@ const HeroBanner = () => {
                 </div>
                 <div>
                     <img
-                        src="./assets/prod_imgs/Phones/iPhone13.png"
+                        src="./prod_imgs/Phones/iPhone13.png"
                         className="h-[680px] w-full object-cover"
                     />
                     <div className=" flex flex-col items-start gap-2 px-[15px] md:px-[40px] py-[10px] md:py-[25px] font-oswald absolute md:bottom-[75px] left-32 top-[8rem] text-white/[0.9] text-[15px] md:text-[20px] hover:opacity-80">
@@ -77,7 +77,7 @@ const HeroBanner = () => {
 
                 <div>
                     <img
-                        src="./assets/prod_imgs/Tablets/iPad Air 2024.png"
+                        src="./prod_imgs/Tablets/iPad Air 2024.png"
                         className="h-[680px] w-full object-cover"
                     />
                     <div className=" flex flex-col items-start gap-2 px-[15px] md:px-[40px] py-[10px] md:py-[25px] font-oswald absolute md:bottom-[75px] left-32 top-[8rem] text-white/[0.9] text-[15px] md:text-[20px] hover:opacity-80">
@@ -98,7 +98,7 @@ const HeroBanner = () => {
                 </div>
                 <div>
                     <img
-                        src="./assets/prod_imgs/Cameras/Sony Alpha 7 IV.png"
+                        src="./prod_imgs/Cameras/Sony Alpha 7 IV.png"
                         className="h-[680px] w-full object-cover"
                     />
                     <div className=" flex flex-col items-start gap-2 px-[15px] md:px-[40px] py-[10px] md:py-[25px] font-oswald absolute md:bottom-[75px] left-32 top-[8rem] text-black/[0.9] text-[15px] md:text-[20px] hover:opacity-80">
@@ -119,7 +119,7 @@ const HeroBanner = () => {
                 </div>
                 <div>
                     <img
-                        src="./assets/prod_imgs/Laptops/Dell XPS 15.jpg"
+                        src="./prod_imgs/Laptops/Dell XPS 15.jpg"
                         className="h-[680px] w-full object-cover"
                     />
                     <div className=" flex flex-col items-start gap-2 px-[15px] md:px-[40px] py-[10px] md:py-[25px] font-oswald absolute md:bottom-[75px] left-32 top-[8rem] text-black/[0.9] text-[15px] md:text-[20px] hover:opacity-80">

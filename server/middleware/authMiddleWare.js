@@ -2,7 +2,8 @@ import jwt from "jsonwebtoken";
 import User from "../models/User.js";
 const authMiddleware = async ( req, res, next ) => {
     const authHeader = req.header('Authorization');
-    const token = authHeader ? authHeader.replace( "Bearer", "" ).trim() : req.cookies.access_token;
+    const token = authHeader ? authHeader.replace( "Bearer", "" ).trim() : req.cookies.token;
+    // console.log("ok here!", token);
     if ( !token ) {
         return res
             .status( 401 )
@@ -10,7 +11,6 @@ const authMiddleware = async ( req, res, next ) => {
     }
     try {
         const isverified = jwt.verify( token, process.env.JWT_SECRET_KEY );
-        // console.log("ok here!");
         const userdata = await User.findOne( { username: isverified.username } ).select('-password');
         
         if (!userdata) {

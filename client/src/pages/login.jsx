@@ -37,6 +37,16 @@ export const Login = () => {
         return isValid;
     };
 
+    const setCookie = (name, value, days) => {
+        let expires = "";
+        if (days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    };
+
     const loginUser = async(e) => {
         e.preventDefault();
         if (!validate()) {
@@ -55,6 +65,8 @@ export const Login = () => {
             if (response.ok) {
                 const userData = await response.json();
                 dispatch( login( { user: userData.user, token: userData.token } ) );
+                setCookie('token', userData.token, 2);
+                setCookie('user', userData.user, 2);
                 toast.success("Login Successfully!");
                 // console.log("userData",userData)
                 navigate('/');
