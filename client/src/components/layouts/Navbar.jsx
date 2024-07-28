@@ -32,7 +32,7 @@ export default function Navbar() {
     return (
         <>
             <div className={` min-h-full mt-4 group`}>
-                <nav className={`bg-[#070a34]`}>
+                <nav className={`bg-[#010103]`}>
                     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                         <div className={`flex h-16 items-center justify-between`}>
                             <div className={`flex items-center text-white `}>
@@ -49,7 +49,7 @@ export default function Navbar() {
                                     </div>
                                 </div>
                             </div>
-                            <div className={`hidden md:flex bg-[#070a34] rounded-full px-10 mt-10  py-2 font-serif shadow-2xl`}>
+                            <div className={`hidden md:flex bg-[#010103] rounded-full px-10 mt-10  py-2 font-serif shadow-2xl`}>
                                 {navigation.map((item) => (
                                     <Link to={item.href} key={item.name}>
                                         <button

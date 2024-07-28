@@ -7,7 +7,7 @@ function Layout () {
             <div className="md:h-16 z-50 relative">
                 <Navbar />
             </div>
-            <div className="w-full bg-gray-100 z-20 absolute">
+            <div className="w-full z-20 absolute">
                 <Outlet />
             </div>
         </div>

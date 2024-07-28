@@ -8,7 +8,7 @@ import { SiDell, SiSony } from "react-icons/si";
 
 const HeroBanner = () => {
     return (
-        <div className="relative text-white text-[20px] w-full  my-auto mx-auto">
+        <div className="relative text-white  text-[20px] w-full  my-auto mx-auto">
             <Carousel
                 autoPlay={true}
                 infiniteLoop={true}
