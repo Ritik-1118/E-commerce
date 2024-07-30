@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../Redux/Slice/authSlice";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -19,6 +19,7 @@ function classNames(...classes) {
 
 export default function Navbar() {
     const dispatch = useDispatch();
+    const { itemcount } = useSelector((state) => state.cart);
     const user = JSON.parse(useSelector((state) => state.auth.user));
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isProfileOpen, setIsProfileOpen] = useState(false);
@@ -49,7 +50,7 @@ export default function Navbar() {
                                     </div>
                                 </div>
                             </div>
-                            <div className={`hidden md:flex bg-[#010103] rounded-full px-10 mt-10  py-2 font-serif shadow-2xl`}>
+                            <div className={`hidden md:flex bg-[#010103] rounded-full px-10 mt-10 z-50 py-2 font-serif shadow-2xl`}>
                                 {navigation.map((item) => (
                                     <Link to={item.href} key={item.name}>
                                         <button
@@ -69,12 +70,14 @@ export default function Navbar() {
                             </div>
                             <div className={`hidden md:block `}>
                                 <div className="ml-4 flex items-center md:ml-6">
-                                    <button
+                                    <NavLink
+                                        to={'/cart'}
                                         type="button"
-                                        className="rounded-full hover:border-gray-300 text-2xl pr-4 p-2 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                                        className="relative rounded-md hover:border-gray-300 text-2xl pr-4 p-2 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                                     >
                                         <HiOutlineShoppingCart />
-                                    </button>
+                                        <div className="absolute top-0 right-1 bg-blue-500 text-white/90 text-[13px] rounded-full h-4 w-4 flex items-center justify-center">{itemcount}</div>
+                                    </NavLink>
                                     <button
                                         type="button"
                                         className="rounded-full  p-1 pr-3 text-2xl text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
@@ -83,7 +86,7 @@ export default function Navbar() {
                                     </button>
 
                                     {/* Profile dropdown */}
-                                    <div className="relative ml-3">
+                                    <div className="relative ml-3 z-50">
                                         <button
                                             className="flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                                             onClick={() => setIsProfileOpen(!isProfileOpen)}

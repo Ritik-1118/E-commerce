@@ -64,13 +64,14 @@ export const Login = () => {
 
             if (response.ok) {
                 const userData = await response.json();
-                dispatch( login( { user: userData.user, token: userData.token } ) );
+                dispatch( login( { user: userData.user, token: userData.token, isAdmin:userData.user.isAdmin} ) );
                 setCookie('token', userData.token, 2);
                 setCookie('user', userData.user, 2);
                 toast.success("Login Successfully!");
                 // console.log("userData",userData)
+                // console.log("user",localStorage.getItem( "user" ))
                 navigate('/');
-                window.location.reload();
+                // window.location.reload();
             } else {
                 setError({ ...error, password: "Invalid username or password" });
             }

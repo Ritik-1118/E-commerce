@@ -22,9 +22,9 @@ const ProductDetailsCarousel = ({ images }) => {
                 <img src={img} sizes={50} className="rounded-lg" />
             </div>
             ))}
-            {/* <div>
+            <div>
                 <img src={images[0]} sizes={50} className="rounded-lg" />
-            </div> */}
+            </div>
         </Carousel>
         </div>
     );

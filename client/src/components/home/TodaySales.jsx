@@ -5,7 +5,7 @@ import { FaStarHalfAlt } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
 export default function TodaySales ({products}) {
-    console.log(products)
+    // console.log(products)
     
     return (
         <div className="max-w-[85rem] mx-auto w-full border bg-slate-100 mt-8 pb-8 shadow-xl">

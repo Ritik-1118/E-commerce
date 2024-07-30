@@ -6,11 +6,10 @@ import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "../components/Loader"
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addToCart } from "../Redux/Slice/cartSlice.jsx";
 
 const ProductDetails = () => {
-    // const { cart, count, itemcount } = useSelector((state) => state.cart);
     const dispatch = useDispatch();
     const { id } = useParams();
     const [ data, setData ] = useState( {} );
@@ -34,9 +33,11 @@ const ProductDetails = () => {
     useEffect( () => {
         getBYid();
     }, [] );
-    const defaultImages = [ "/banner.png", "/coco-cola.jpg", "/redBull.png" ];
+    const defaultImages = [ "/img1.png", "/img2.jpg", "/img3.png" ];
     // const images = data.image && data.image.length > 0 ? data.image : defaultImages;
-    const images = data.image ? new Array(data.image) : defaultImages;
+    const imageArray = [data.image];
+    // console.log(imageArray)
+    // const images = data.image ? new Array(data.image) : defaultImages;
     const handleAddToCart = ( data ) => {
         toast.success( `${data.name} Added in Cart` );
         dispatch( addToCart( { data } ) );
@@ -67,7 +68,7 @@ const ProductDetails = () => {
                             <div className="flex flex-col lg:flex-row md:px-10 gap-[50px] lg:gap-[100px]">
                                 {/* left column start */ }
                                 <div className="w-full md:w-auto  flex-[1.5] max-w-[500px] lg:max-w-full mx-auto lg:mx-0">
-                                    <ProductDetailsCarousel images={ images } className="" />
+                                    <ProductDetailsCarousel images={ imageArray } className="" />
                                 </div>
                                 {/* left column end */ }
 

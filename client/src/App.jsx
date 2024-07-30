@@ -7,6 +7,9 @@ import { Login } from "./pages/login";
 import Home from "./pages/home";
 import { PageNotFound } from "./pages/pageNotFound";
 import ProductDetails from "./pages/ProductDetails";
+import Cart from "./pages/Cart";
+import Success from "./pages/paymentResult/success"
+import Cancel from "./pages/paymentResult/cancel"
 
 export default function App () {
     return (
@@ -24,6 +27,9 @@ export default function App () {
                 >
                     <Route index element={ <Home /> } />
                     <Route path="product-details/:id" element={<ProductDetails />} />
+                    <Route path="cart" element={<Cart />} />
+                    <Route path="/payment-success" element={<Success />} />
+                    <Route path="/payment-cancel" element={<Cancel />} />
                 </Route>
                 <Route path="*" element={ <PageNotFound /> } />
             </Routes>

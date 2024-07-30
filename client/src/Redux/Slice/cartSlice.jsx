@@ -24,7 +24,7 @@ const cartSlice = createSlice({
         },
         removeItem: (state, action) => {
             const itemIndex = state.cart.findIndex(
-                (item) => item._id === action.payload.id
+                (item) => item._id === action.payload._id
             );
             if (itemIndex !== -1) {
                 if (state.cart[itemIndex].quantity === 1) {

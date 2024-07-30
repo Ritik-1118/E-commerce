@@ -8,8 +8,10 @@ const initialState = {
             : null,
     user:
         typeof window !== "undefined"
-            ? localStorage.getItem( "user" ) || null
+            ? localStorage.getItem("user")
             : null,
+    isLogin: localStorage.getItem( "token" ) || localStorage.getItem( "isLogin" ) ? true : false,
+    isAdmin: localStorage.getItem( "isAdmin" ) || false,
 };
 
 export const authSlice = createSlice( {
@@ -17,21 +19,27 @@ export const authSlice = createSlice( {
     initialState,
     reducers: {
         login: ( state, action ) => {
-            const { user, token } = action.payload;
+            const { user, token, isAdmin } = action.payload;
             state.user = user ;
             state.token = token;
-            localStorage.setItem( "token", token );
-            // localStorage.setItem( "user", encryptData( JSON.stringify( user ) ) );
+            state.isLogin = true;
+            state.isAdmin = isAdmin;
             localStorage.setItem( "user", JSON.stringify( user ) );
+            localStorage.setItem( "token", token );
+            localStorage.setItem( "isLogin", true );
+            localStorage.setItem( "isAdmin", isAdmin );
+            // localStorage.setItem( "user", encryptData( JSON.stringify( user ) ) );
         },
         logout: ( state ) => {
             state.user = null;
             state.token = null;
+            state.isLogin = false;
+            state.isAdmin = false;
             localStorage.removeItem( "token" );
             localStorage.removeItem( "user" );
         },
     },
 } );
 
-export const { login, logout } = authSlice.actions;
+export const { login, logout, } = authSlice.actions;
 export default authSlice.reducer;
