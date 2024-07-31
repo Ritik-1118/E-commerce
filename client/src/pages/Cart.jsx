@@ -141,7 +141,7 @@ const Cart = () => {
                                 </div>
                                 {/* IMAGE END */ }
 
-                                <div className="w-full flex flex-col">
+                                <div className="w-full flex flex-col underline-offset-4">
                                     <div className="flex flex-row justify-between">
                                         {/* PRODUCT TITLE */ }
                                         <div className="text-lg md:text-2xl font-semibold text-black/[0.8]">

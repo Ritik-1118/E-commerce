@@ -8,6 +8,7 @@ import Home from "./pages/home";
 import { PageNotFound } from "./pages/pageNotFound";
 import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
+import Products from "./pages/products";
 import Success from "./pages/paymentResult/success"
 import Cancel from "./pages/paymentResult/cancel"
 
@@ -27,6 +28,7 @@ export default function App () {
                 >
                     <Route index element={ <Home /> } />
                     <Route path="product-details/:id" element={<ProductDetails />} />
+                    <Route path="products" element={<Products />} />
                     <Route path="cart" element={<Cart />} />
                     <Route path="/payment-success" element={<Success />} />
                     <Route path="/payment-cancel" element={<Cancel />} />

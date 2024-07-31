@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../Redux/Slice/authSlice";
-import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { ArrowLeftIcon, ArrowRightIcon, Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 
 
@@ -16,14 +16,24 @@ const navigation = [
 function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
 }
+    
 
 export default function Navbar() {
+    const location = useLocation();
     const dispatch = useDispatch();
     const { itemcount } = useSelector((state) => state.cart);
     const user = JSON.parse(useSelector((state) => state.auth.user));
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isProfileOpen, setIsProfileOpen] = useState(false);
     const [isChildHovered, setIsChildHovered] = useState(false);
+
+    navigation.forEach((currnav) => {
+        if (currnav.href==location.pathname) {
+            currnav.current=true;
+        }else{
+            currnav.current=false;
+        }
+    });
 
     const handleLogout = async () => {
         dispatch(logout());
@@ -99,12 +109,12 @@ export default function Navbar() {
                                             />
                                         </button>
                                         {isProfileOpen && (
-                                            <div className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                            <div className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-[#010103] py-1 shadow-lg ring-1 ring-white text-white/80 ring-opacity-5 focus:outline-none">
                                                 <div className="px-2 flex flex-col gap-2">
-                                                    <span>{user.username}</span>
+                                                    <span className="uppercase flex">Hey! {user.username}</span>
                                                     <span className="py-1">{user.email}</span>
                                                     <div
-                                                        className="border w-1/2 flex items-center justify-center bg-gray-500 rounded-lg text-white/90 cursor-pointer"
+                                                        className="border w-1/2 flex items-center justify-center bg-red-500 hover:bg-transparent hover:border-red-500 hover:translate-x-1 hover:translate-y-0 rounded-lg text-white/90 cursor-pointer"
                                                         onClick={handleLogout}
                                                     >
                                                         Logout

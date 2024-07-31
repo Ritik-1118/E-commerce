@@ -16,8 +16,8 @@ const Cancel = () => {
                         <div className=" text-center">
                             <div className="flex items-center justify-center">
                                 <img
-                                    src="/img/cancel.gif"
-                                    alt="successImg"
+                                    src="./assets/cancel.gif"
+                                    alt="CancelImg"
                                     sizes={ 22 }
                                     className=" h-28 "
                                 />

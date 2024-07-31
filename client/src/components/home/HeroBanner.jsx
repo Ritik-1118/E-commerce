@@ -48,7 +48,7 @@ const HeroBanner = () => {
                         <div className=" text-white/90 text-lg w-1/2 text-start">
                             Latest iPhone with advanced features. Powerful laptop for professionals. High-end Android tablet with AMOLED display.
                         </div>
-                        <span className="flex items-center pt-8 text-md cursor-pointer">
+                        <span className="flex items-center pt-8 text-md cursor-pointer hover:translate-x-1 hover:text-red-600 translate-y-1 hover:translate-x-1 hover:text-red-600 translate-y-1">
                             Buy now&nbsp;<IoArrowForwardOutline />
                         </span>
                     </div>
@@ -69,7 +69,7 @@ const HeroBanner = () => {
                         <div className=" text-white/90 text-lg w-1/2 text-start">
                             Latest iPhone with advanced features. Powerful laptop for professionals. High-end Android tablet with AMOLED display.
                         </div>
-                        <span className="flex items-center pt-8 text-md cursor-pointer">
+                        <span className="flex items-center pt-8 text-md cursor-pointer hover:translate-x-1 hover:text-red-600 translate-y-1">
                             Buy now&nbsp;<IoArrowForwardOutline />
                         </span>
                     </div>
@@ -91,7 +91,7 @@ const HeroBanner = () => {
                         <div className=" text-white/90 text-lg w-1/2 text-start">
                             Latest iPhone with advanced features. Powerful laptop for professionals. High-end Android tablet with AMOLED display.
                         </div>
-                        <span className="flex items-center pt-8 text-md cursor-pointer">
+                        <span className="flex items-center pt-8 text-md cursor-pointer hover:translate-x-1 hover:text-red-600 translate-y-1">
                             Buy now&nbsp;<IoArrowForwardOutline />
                         </span>
                     </div>
@@ -112,7 +112,7 @@ const HeroBanner = () => {
                         <div className="  text-lg w-1/2 text-start">
                             Latest iPhone with advanced features. Powerful laptop for professionals. High-end Android tablet with AMOLED display.
                         </div>
-                        <span className="flex items-center pt-8 text-md cursor-pointer">
+                        <span className="flex items-center pt-8 text-md cursor-pointer hover:translate-x-1 hover:text-red-600 translate-y-1">
                             Buy now&nbsp;<IoArrowForwardOutline />
                         </span>
                     </div>
@@ -133,7 +133,7 @@ const HeroBanner = () => {
                         <div className="  text-lg w-1/2 text-start">
                             Latest iPhone with advanced features. Powerful laptop for professionals. High-end Android tablet with AMOLED display.
                         </div>
-                        <span className="flex items-center pt-8 text-md cursor-pointer">
+                        <span className="flex items-center pt-8 text-md cursor-pointer hover:translate-x-1 hover:text-red-600 translate-y-1">
                             Buy now&nbsp;<IoArrowForwardOutline />
                         </span>
                     </div>
