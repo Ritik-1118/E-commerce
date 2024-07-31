@@ -25,9 +25,9 @@ app.use(
 
 app.use("/api/auth",authRoutes)
 app.use('/api/products',authMiddleware, productRoutes);
-app.use('/api/orders', orderRoutes);
-app.use('/api/cart', cartRoutes);
-app.use('/api/payments', paymentRoutes);
+app.use('/api/orders',authMiddleware, orderRoutes);
+app.use('/api/cart',authMiddleware, cartRoutes);
+app.use('/api/payments',authMiddleware, paymentRoutes);
 
 const PORT = process.env.PORT || 8000;
 connectDB();

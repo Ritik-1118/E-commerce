@@ -71,7 +71,7 @@ export const Login = () => {
                 // console.log("userData",userData)
                 // console.log("user",localStorage.getItem( "user" ))
                 navigate('/');
-                // window.location.reload();
+                window.location.reload();
             } else {
                 setError({ ...error, password: "Invalid username or password" });
             }

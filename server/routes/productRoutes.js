@@ -7,6 +7,7 @@ const router = express.Router();
 router.route( '/' )
     .get( getProducts )
     .post( upload.single('image'),createProduct );
+    
 router.get('/getByFilter',getProductsByFilter)
 
 router.route( '/:id' )

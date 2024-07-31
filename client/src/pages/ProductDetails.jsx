@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Loader from "../components/Loader"
 import { useDispatch } from "react-redux";
 import { addToCart } from "../Redux/Slice/cartSlice.jsx";
-
+    
 const ProductDetails = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
