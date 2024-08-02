@@ -17,31 +17,31 @@ export default function ProdByCategory () {
                 </div>
             </div>
             <div className="py-4 flex gap-4 justify-center items-center overflow-hidden overflow-x-auto">
-                <div className="max-w-[150px] min-w-[150px] h-fit border-2 rounded-md border-gray-400 hover:opacity-80 cursor-pointer">
+                <div className="max-w-[150px] min-w-[150px] h-fit border-2 rounded-md border-gray-400 hover:opacity-80 cursor-pointer transition ease-linear duration-300 transform hover:scale-110">
                     <div className="py-5 flex flex-col items-center">
                         <IoPhonePortraitOutline className="text-7xl text-gray-800"/>
                         <span className="py-1 text-xl">Phones</span>
                     </div>
                 </div>
-                <div className="max-w-[150px] min-w-[150px] h-fit border-2 rounded-md border-gray-400 hover:opacity-80 cursor-pointer">
+                <div className="max-w-[150px] min-w-[150px] h-fit border-2 rounded-md border-gray-400 hover:opacity-80 cursor-pointer transition ease-linear duration-300 transform hover:scale-110">
                     <div className="py-5 flex flex-col items-center">
                         <CiLaptop className="text-7xl text-gray-800"/>
                         <span className="py-1 text-xl">Laptops</span>
                     </div>
                 </div>
-                <div className="max-w-[150px] min-w-[150px] h-fit border-2 rounded-md border-gray-400 hover:opacity-80 cursor-pointer">
+                <div className="max-w-[150px] min-w-[150px] h-fit border-2 rounded-md border-gray-400 hover:opacity-80 cursor-pointer transition ease-linear duration-300 transform hover:scale-110">
                     <div className="py-5 flex flex-col items-center">
                         <BsTablet className="text-7xl text-gray-800"/>
                         <span className="py-1 text-xl">Tabblets</span>
                     </div>
                 </div>
-                <div className="max-w-[150px] min-w-[150px] h-fit border-2 rounded-md border-gray-400 hover:opacity-80 cursor-pointer">
+                <div className="max-w-[150px] min-w-[150px] h-fit border-2 rounded-md border-gray-400 hover:opacity-80 cursor-pointer transition ease-linear duration-300 transform hover:scale-110">
                     <div className="py-5 flex flex-col items-center">
                         <CiCamera className="text-7xl text-gray-800"/>
                         <span className="py-1 text-xl">Phones</span>
                     </div>
                 </div>
-                <div className="max-w-[150px] min-w-[150px] h-fit border-2 rounded-md border-gray-400 hover:opacity-80 cursor-pointer">
+                <div className="max-w-[150px] min-w-[150px] h-fit border-2 rounded-md border-gray-400 hover:opacity-80 cursor-pointer transition ease-linear duration-300 transform hover:scale-110">
                     <div className="py-5 flex flex-col items-center">
                         <CiHeadphones className="text-7xl text-gray-800"/>
                         <span className="py-1 text-xl">HeadPhones</span>

@@ -8,7 +8,7 @@ export default function Products () {
         brand:"",
         minPrice:null,
         maxPrice:null
-    })
+    });
 
     const fetchAllProducts = async () => {
         try {

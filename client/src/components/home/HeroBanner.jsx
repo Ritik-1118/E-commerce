@@ -18,7 +18,7 @@ const HeroBanner = () => {
                 renderArrowPrev={(clickHandler, hasPrev) => (
                     <div
                         onClick={clickHandler}
-                        className="absolute right-[31px] rounded-t-md md:right-[51px] bottom-0 w-[30px] md:w-[50px] h-[15px] md:h-[50px] bg-black z-10 flex items-center justify-center cursor-pointer hover:opacity-90"
+                        className="absolute right-[31px] rounded-t-md md:right-[51px] bottom-0 w-[30px] md:w-[50px] h-[15px] md:h-[50px] bg-black z-10 flex items-center justify-center cursor-pointer hover:opacity-90 transition-transform transform duration-300 ease-in-out hover:scale-110 hover:shadow-xl focus:outline-none"
                     >
                         <BiArrowBack className="text-sm md:text-lg" />
                     </div>
@@ -26,7 +26,7 @@ const HeroBanner = () => {
                 renderArrowNext={(clickHandler, hasNext) => (
                     <div
                         onClick={clickHandler}
-                        className="absolute right-0 rounded-l-md bottom-0 w-[30px] md:w-[50px] h-[30px] md:h-[50px] bg-black z-10 flex items-center justify-center cursor-pointer hover:opacity-90"
+                        className="absolute right-0 rounded-l-md bottom-0 w-[30px] md:w-[50px] h-[30px] md:h-[50px] bg-black z-10 flex items-center justify-center cursor-pointer hover:opacity-90 transition-transform transform duration-300 ease-in-out hover:scale-110 hover:shadow-xl focus:outline-none"
                     >
                         <BiArrowBack className="rotate-180 text-sm md:text-lg" />
                     </div>
@@ -48,8 +48,8 @@ const HeroBanner = () => {
                         <div className=" text-white/90 text-lg w-1/2 text-start">
                             Latest iPhone with advanced features. Powerful laptop for professionals. High-end Android tablet with AMOLED display.
                         </div>
-                        <span className="flex items-center pt-8 text-md cursor-pointer hover:translate-x-1 hover:text-red-600 translate-y-1 hover:translate-x-1 hover:text-red-600 translate-y-1">
-                            Buy now&nbsp;<IoArrowForwardOutline />
+                        <span className="flex items-center pt-8 text-xl transition ease-in-out duration-300 transform hover:scale-110 cursor-pointer translate-y-1 hover:translate-x-1 hover:text-red-600">
+                            Buy now&nbsp;<IoArrowForwardOutline className=" mt-[5px]"/>
                         </span>
                     </div>
                 </div>
@@ -69,8 +69,8 @@ const HeroBanner = () => {
                         <div className=" text-white/90 text-lg w-1/2 text-start">
                             Latest iPhone with advanced features. Powerful laptop for professionals. High-end Android tablet with AMOLED display.
                         </div>
-                        <span className="flex items-center pt-8 text-md cursor-pointer hover:translate-x-1 hover:text-red-600 translate-y-1">
-                            Buy now&nbsp;<IoArrowForwardOutline />
+                        <span className="flex items-center pt-8 text-xl transition ease-in-out duration-300 transform hover:scale-110 cursor-pointer hover:translate-x-1 hover:text-red-600 translate-y-1">
+                            Buy now&nbsp;<IoArrowForwardOutline className=" mt-[5px]"/>
                         </span>
                     </div>
                 </div>
@@ -91,8 +91,8 @@ const HeroBanner = () => {
                         <div className=" text-white/90 text-lg w-1/2 text-start">
                             Latest iPhone with advanced features. Powerful laptop for professionals. High-end Android tablet with AMOLED display.
                         </div>
-                        <span className="flex items-center pt-8 text-md cursor-pointer hover:translate-x-1 hover:text-red-600 translate-y-1">
-                            Buy now&nbsp;<IoArrowForwardOutline />
+                        <span className="flex items-center pt-8 text-xl transition ease-in-out duration-300 transform hover:scale-110 cursor-pointer hover:translate-x-1 hover:text-red-600 translate-y-1">
+                            Buy now&nbsp;<IoArrowForwardOutline className=" mt-[5px]"/>
                         </span>
                     </div>
                 </div>
@@ -112,8 +112,8 @@ const HeroBanner = () => {
                         <div className="  text-lg w-1/2 text-start">
                             Latest iPhone with advanced features. Powerful laptop for professionals. High-end Android tablet with AMOLED display.
                         </div>
-                        <span className="flex items-center pt-8 text-md cursor-pointer hover:translate-x-1 hover:text-red-600 translate-y-1">
-                            Buy now&nbsp;<IoArrowForwardOutline />
+                        <span className="flex items-center pt-8 text-xl transition ease-in-out duration-300 transform hover:scale-110 cursor-pointer hover:translate-x-1 hover:text-red-600 translate-y-1">
+                            Buy now&nbsp;<IoArrowForwardOutline className=" mt-[5px]"/>
                         </span>
                     </div>
                 </div>
@@ -133,8 +133,8 @@ const HeroBanner = () => {
                         <div className="  text-lg w-1/2 text-start">
                             Latest iPhone with advanced features. Powerful laptop for professionals. High-end Android tablet with AMOLED display.
                         </div>
-                        <span className="flex items-center pt-8 text-md cursor-pointer hover:translate-x-1 hover:text-red-600 translate-y-1">
-                            Buy now&nbsp;<IoArrowForwardOutline />
+                        <span className="flex items-center pt-8 text-xl transition ease-in-out duration-300 transform hover:scale-110 cursor-pointer hover:translate-x-1 hover:text-red-600 translate-y-1">
+                            Buy now&nbsp;<IoArrowForwardOutline className=" mt-[5px]"/>
                         </span>
                     </div>
                 </div>

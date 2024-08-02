@@ -24,9 +24,9 @@ export default function BestSellingProducts ({products}) {
             </div>
             <div className="pt-4 flex gap-4 overflow-hidden overflow-x-auto">
                 { products && products.map( ( product, i ) => (
-                    <NavLink to={`/product-details/${product._id}`} key={ i } className=" w-[200px] min-w-[210px] h-[300px] rounded-md shadow-2xl">
+                    <NavLink to={`/product-details/${product._id}`} key={ i } className=" w-[200px] min-w-[210px] h-[300px] rounded-md shadow-2xl transition ease-linear duration-300 transform hover:scale-110">
                         <div className="flex items-center justify-center shadow-slate-200 shadow">
-                            <img src={`${product.image ? product.image : "./assets/prod_imgs/Phones/iPhone 14 pro max.jpeg"}`} alt=" Product image" className="h-40 w-auto" />
+                            <img src={`${product.image ? product.image : "./assets/prod_imgs/Phones/iPhone 14 pro max.jpeg"}`} alt=" Product image" className="h-40 w-auto rounded-lg" />
                         </div>
                         <div className="flex flex-col px-2 mt-2 gap-1">
                             <span className="flex items-center justify-between font-semibold">
