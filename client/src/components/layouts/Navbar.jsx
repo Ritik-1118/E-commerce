@@ -46,7 +46,7 @@ export default function Navbar() {
             <div className={` md:min-h-full group`}>
                 <nav className={`bg-[#010103] md:bg-transparent md:group-hover:bg-[#010103]/30`}>
                     <div className="h-6 bg-red-600 flex items-center justify-center font-serif italic text-white/90 w-full">
-                        <span>50% off on all Products! </span>
+                        <span>Up to 50% off on all Products! </span>
                         <Link to={'/products'} className="text-sm underline underline-offset-2 flex hover:pl-1 items-center transition ease-in duration-300 transform hover:scale-110">
                             <span className="w-[70px] pl-1 flex items-center justify-center">Shop Now</span>
                             <ArrowRightIcon className="text-sm w-4 pt-[3px]" />
@@ -85,9 +85,9 @@ export default function Navbar() {
                             </div>
                             <div className={`hidden md:block`}>
                                 <div className="ml-4 flex items-center md:ml-6">
-                                    <div className=" border-2 border-gray-900/80 group-hover:border-white bg-white/50 hover:bg-transparent flex items-center rounded-full py-1 px-1">
+                                    <div className=" border-2 border-gray-900/80 group-hover:border-white bg-white/30 hover:bg-transparent flex items-center rounded-full py-1 px-1">
                                         <BiSearch className="text-xl text-gray-800/80 group-hover:text-gray-50 mx-1 cursor-pointer hover:shadow-lg transition ease-in-out duration-300 transform hover:scale-110"/>
-                                        <input type="search" name="search" id="search" className="bg-transparent mr-2 border-none focus:outline-none focus:border-transparent text-white" />
+                                        <input type="search" name="search" id="search" placeholder="What are you looking for?" className="bg-transparent text-black text-[15px] px-2 rounded-full mr-2 border-none focus:outline-none focus:border-transparent hover:text-white" />
                                     </div>
                                     <NavLink
                                         to={'/cart'}
