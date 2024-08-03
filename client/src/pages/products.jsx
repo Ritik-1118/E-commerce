@@ -1,8 +1,16 @@
 import { useEffect, useState } from "react";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { GiReturnArrow } from "react-icons/gi";
+import { HiOutlineShoppingCart } from "react-icons/hi";
+import { BiHeart } from "react-icons/bi";
+import { FaStarHalfAlt } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
+import { addToCart } from "../Redux/Slice/cartSlice";
 
 export default function Products() {
+    const dispatch = useDispatch();
     const [allProducts, setAllProducts] = useState([]);
     const [filterProduct, setFilterProduct] = useState([]);
     const [showBrandSearch, setShowBrandSearch] = useState(false);
@@ -55,13 +63,19 @@ export default function Products() {
         }
     };
 
-    useEffect(() => {
-        fetchAllProducts();
-    }, []);
+
+    // useEffect(() => {
+    //     fetchAllProducts();
+    // }, []);
 
     useEffect(() => {
         fetchProductsByFilter();
     }, [filter]);
+
+    const handleAddToCart = ( data ) => {
+        toast.success( `${data.name} Added in Cart` );
+        dispatch( addToCart( { data } ) );
+    };
 
     const handleFilterUpdate = (event) => {
         const { name, value } = event.target;
@@ -83,9 +97,9 @@ export default function Products() {
     return (
         <div className="mt-[68px] max-w-[80rem] mx-auto pl-12 flex flex-col">
             <div className="pt-16">
-                <div className="">
-                    <div className="font-semibold py-4 uppercase text-3xl text-black/80">All Products</div>
-                    <div>
+                <div className=" py-4">
+                    <div className="font-semibold font-serif py-4 uppercase text-3xl text-black/80">All Products</div>
+                    <div className="font-light">
                         Discover our wide range of products, carefully curated to meet all your needs. 
                         Whether you&apos;re looking for the latest tech gadgets or everyday essentials, 
                         we have something for everyone. Browse through our categories to find exactly what you need.
@@ -135,6 +149,7 @@ export default function Products() {
                                     type="search"
                                     name="brand"
                                     className="outline-none rounded-full px-2"
+                                    placeholder="Search Brand name"
                                     value={filter.brand}
                                     onChange={handleFilterUpdate}
                                 />
@@ -161,6 +176,7 @@ export default function Products() {
                                     type="number"
                                     name="minPrice"
                                     className="outline-none rounded-full px-2"
+                                    placeholder="Minimum price"
                                     value={filter.minPrice}
                                     onChange={handleFilterUpdate}
                                 />
@@ -187,13 +203,14 @@ export default function Products() {
                                     type="number"
                                     name="maxPrice"
                                     className="outline-none rounded-full px-2"
+                                    placeholder="Maximum price"
                                     value={filter.maxPrice}
                                     onChange={handleFilterUpdate}
                                 />
                             </div>}
                         </div>
                     </div>
-                    <div className="text-[15px] text-gray-700/90 cursor-pointer flex items-center text-blue-500 transition ease-in-out duration-300 transform hover:scale-110"
+                    <div className="text-[15px] cursor-pointer flex items-center text-blue-500/60 transition ease-in-out duration-300 transform hover:scale-110"
                         onClick={handleClearFilters}
                     >
                         Clear all <GiReturnArrow className="mx-1 mt-1" />
@@ -204,12 +221,32 @@ export default function Products() {
                 {/* Display filtered products */}
                 {filterProduct.length ? (
                     filterProduct.map((product) => (
-                        <div key={product._id} className="border rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                        <div key={product._id} className=" relative border rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out-hover-effect">
                             <img src={product.image} alt={product.name} className="w-full h-48 object-cover rounded-t-lg" />
-                            <div className="p-4">
-                                <h3 className="text-lg font-semibold">{product.name}</h3>
-                                <p className="text-gray-600">{product.description}</p>
-                                <p className="text-gray-800 font-bold">${product.price}</p>
+                            <div className="py-4">
+                                <div className="px-4">
+                                    <h3 className="text-lg font-semibold">{product.name}</h3>
+                                    <p className="text-gray-600">{product.description}</p>
+                                    <p className="text-gray-800 font-bold">${product.price}</p>
+                                </div>
+                                <div className="flex items-center px-4">
+                                    <FaStarHalfAlt className="text-yellow-500 text-sm" />
+                                    <FaStarHalfAlt className="text-yellow-500 text-sm" />
+                                    <FaStarHalfAlt className="text-yellow-500 text-sm" />
+                                    <FaStarHalfAlt className="text-yellow-500 text-sm" />
+                                    <FaStarHalfAlt className="text-yellow-500 text-sm" />
+                                    <span className="text-gray-600 pl-1">(78)</span>
+                                </div>
+                                <div className="absolute top-3 left-3 cursor-pointer"><BiHeart className="text-lg text-red-600"/></div>
+                            </div>
+                            <div className=" flex items-center justify-between px-4 pb-4">
+                                <NavLink to={`/product-details/${product._id}`} className="hover:border px-2 py-1 rounded-md bg-red-500/90 text-white/90 hover:border-red-500 hover:text-red-500 hover:bg-transparent hover:underline hover:underline-offset-2 cursor-pointer ease-in-out-hover-effect">View details</NavLink>
+                                <div className="text-2xl pr-4 cursor-pointer ease-in-out-hover-effect relative group"
+                                    onClick={() => handleAddToCart(product)}
+                                >
+                                    <HiOutlineShoppingCart className=""/>
+                                    <h1 className=" absolute -mt-11 -ml-16 w-20 px-2 border border-zinc-200 text-xs rounded opacity-0 group-hover:opacity-100 text-black">Add to cart</h1>
+                                </div>
                             </div>
                         </div>
                     ))

@@ -1,4 +1,5 @@
 import "./index.css";
+import "./App.css"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/layouts/Layout";
 import ProtectedWrapper from "./ProtectedWrapper";

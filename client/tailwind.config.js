@@ -6,10 +6,26 @@ export default {
     ],
     theme: {
         extend: {
-            nav:"#070a34",
-            MaroonFlush:"#b42044",
-            1:""
+            nav: "#070a34",
+            MaroonFlush: "#b42044",
+            1: ""
         },
     },
-    plugins: [],
+    plugins: [
+        function ( { addUtilities } ) {
+            addUtilities( {
+                '.scrollbar-hide': {
+                    /* Firefox */
+                    'scrollbar-width': 'none',
+                    /* Internet Explorer 10+ */
+                    '-ms-overflow-style': 'none',
+                    /* WebKit */
+                    '&::-webkit-scrollbar': {
+                        width: '0px',
+                        height: '0px',
+                    },
+                },
+            } );
+        },
+    ],
 }
