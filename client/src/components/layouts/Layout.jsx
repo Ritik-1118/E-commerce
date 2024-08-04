@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 function Layout () {
     return (
@@ -9,6 +10,9 @@ function Layout () {
             </div>
             <div className="w-full z-20 top-[24px] absolute">
                 <Outlet />
+                <div className="relative bottom-0">
+                    <Footer />
+                </div>
             </div>
         </div>
     );

@@ -86,11 +86,11 @@ export const Login = () => {
             <div className="max-w-md items-center w-full p-8 space-y-8 bg-transparent rounded-lg shadow-xl">
                 <div className="py-2">
                     <img
-                        className="w-auto h-20 rounded-full mx-auto pr-10"
-                        src="./assets/cartLogo.png"
+                        className="w-auto h-36 rounded-full mx-auto pr-10"
+                        src="./assets/logo.png"
                         alt="Logo"
                     />
-                    <h2 className="mt-4 text-3xl font-bold text-center text-gray-900">
+                    <h2 className=" text-3xl font-bold text-center text-gray-900">
                         Login to your account
                     </h2>
                 </div>

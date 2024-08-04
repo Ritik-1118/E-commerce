@@ -12,6 +12,7 @@ import Cart from "./pages/Cart";
 import Products from "./pages/products";
 import Success from "./pages/paymentResult/success"
 import Cancel from "./pages/paymentResult/cancel"
+import FAQ from "./pages/FAQ";
 
 export default function App () {
     return (
@@ -33,6 +34,7 @@ export default function App () {
                     <Route path="cart" element={<Cart />} />
                     <Route path="/payment-success" element={<Success />} />
                     <Route path="/payment-cancel" element={<Cancel />} />
+                    <Route path="faq" element={<FAQ />} />
                 </Route>
                 <Route path="*" element={ <PageNotFound /> } />
             </Routes>

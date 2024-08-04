@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import ProductDetailsCarousel from "../components/ProductDetailsCarousel.jsx";
-import { FaCartArrowDown } from "react-icons/fa";
+import { FaCartArrowDown, FaStarHalfAlt } from "react-icons/fa";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
@@ -8,6 +8,9 @@ import "react-toastify/dist/ReactToastify.css";
 import Loader from "../components/Loader"
 import { useDispatch } from "react-redux";
 import { addToCart } from "../Redux/Slice/cartSlice.jsx";
+import { BsArrowDown } from "react-icons/bs";
+import { MdDoNotDisturbAlt } from "react-icons/md";
+import { RiMoneyRupeeCircleFill } from "react-icons/ri";
     
 const ProductDetails = () => {
     const dispatch = useDispatch();
@@ -24,6 +27,7 @@ const ProductDetails = () => {
             );
             setData( response.data );
             setLoading( false );
+            console.log(response.data)
         } catch ( error ) {
             console.error( "Error fetching product details:", error );
             setLoading( false );
@@ -32,8 +36,9 @@ const ProductDetails = () => {
 
     useEffect( () => {
         getBYid();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [] );
-    const defaultImages = [ "/img1.png", "/img2.jpg", "/img3.png" ];
+    // const defaultImages = [ "/img1.png", "/img2.jpg", "/img3.png" ];
     // const images = data.image && data.image.length > 0 ? data.image : defaultImages;
     const imageArray = [data.image];
     // console.log(imageArray)
@@ -75,15 +80,26 @@ const ProductDetails = () => {
                                 {/* right column start */ }
                                 <div className="flex-[1] py-3">
                                     {/* PRODUCT TITLE */ }
-                                    <div className="text-[34px] text-sky-800  font-bold mb-2 leading-tight">
-                                        { data.title }
+                                    <div className="text-[34px] font-bold mb-2 leading-tight">
+                                        { data.name }
                                     </div>
-
+                                    <div className="font-serif font-semibold text-xl pb-2">
+                                        {data.brand}
+                                    </div>
                                     {/* PRODUCT PRICE */ }
-                                    <div className="flex items-center ">
-                                        <p className="mr-2 text-lg font-semibold">
-                                            MRP - &#36; { data.price } USD
-                                        </p>
+                                    <span className="text-red-500 flex gap-3 ">
+                                        <span className="flex text-green-600"><BsArrowDown className=" mt-1" />50%</span>
+                                        <span className="line-through text-gray-500">${data.price + data.price}</span>
+                                        ${data.price} 
+                                    </span>
+                                    
+                                    <div className="flex items-center pt-2">
+                                        <FaStarHalfAlt className="text-yellow-500 text-sm" />
+                                        <FaStarHalfAlt className="text-yellow-500 text-sm" />
+                                        <FaStarHalfAlt className="text-yellow-500 text-sm" />
+                                        <FaStarHalfAlt className="text-yellow-500 text-sm" />
+                                        <FaStarHalfAlt className="text-yellow-500 text-sm" />
+                                        <span className="text-gray-600 pl-1">(1k)</span>
                                     </div>
                                     <div>
                                         <div className="flex flex-row items-center justify-between">
@@ -96,14 +112,28 @@ const ProductDetails = () => {
                                         <div className="markdown text-xl text-sky-700 mb-5">
                                             { data.description }
                                         </div>
+                                        
+                                        <div className=" pb-4 -mt-2 font-bold text-black/80 text-xl">
+                                            {data.stock >0 ? "In stock" : "Out of stock"}
+                                        </div>
+                                        <div className="flex items-center mb-4 gap-8">
+                                            <div className="flex flex-col items-center justify-center w-24 text-center shadow-md rounded-lg px-2 py-1 shadow-gray-100">
+                                                <MdDoNotDisturbAlt className="text-xl"/>No Returns Allowed
+                                            </div>
+                                            <div className="flex flex-col items-center justify-center w-36 text-center shadow-md rounded-lg px-2 py-1 shadow-gray-100">
+                                                <RiMoneyRupeeCircleFill className="text-xl text-green-600"/>Cash on Dellivery avaliable
+                                            </div>
+                                        </div>
                                     </div>
                                     {/* ADD TO CART BUTTON START */ }
                                     <button
-                                        className="w-full flex items-center justify-center py-4 rounded-full bg-transparent border-2 border-sky-900 border-solid text-sky-800 text-xl font-medium transition-transform active:scale-95 mb-3 hover:opacity-80 hover:bg-gradient-to-r from-sky-700 via-gray-50 to-sky-500"
+                                        className="w-full  py-4 rounded-full bg-transparent border-2 border-red-900 border-solid text-red-800 text-xl font-medium transition-transform active:scale-95 mb-3 hover:opacity-80 "
                                         onClick={ () => handleAddToCart( data ) }
                                     >
-                                        <span>Add to Cart &nbsp;</span>
-                                        <FaCartArrowDown />
+                                        <div className="flex items-center justify-center ease-in-out-hover-effect">
+                                            <span className="ease-in-out-hover-effect">Add to Cart &nbsp;</span>
+                                            <FaCartArrowDown />
+                                        </div>
                                     </button>
                                     {/* ADD TO CART BUTTON END */ }
                                 </div>

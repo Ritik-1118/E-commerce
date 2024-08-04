@@ -2,11 +2,13 @@ import HeroBanner from "../components/home/HeroBanner"
 import TodaySales from "../components/home/TodaySales"
 import ProdByCategory from "../components/home/ProdByCategory"
 import BestSellingProducts from "../components/home/BestSellingProds"
+import Loader from "../components/Loader"
 import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function Home () {
     const [ products, setProducts ] = useState( [] );
+    const [ isLoading, setIsLoading ] = useState( true );
 
     const getAllProd = async () => {
         try {
@@ -15,9 +17,11 @@ export default function Home () {
                 withCredentials: true,
             } );
             setProducts( response.data );
+            setIsLoading( false );
             // console.log( response.data )
         } catch ( error ) {
             console.error( "Error fetching products:", error );
+            setIsLoading( false );
         }
     };
 
@@ -28,9 +32,9 @@ export default function Home () {
     return (
         <div className="w-full bg-slate-200">
             <HeroBanner />
-            <TodaySales products= {products}/>
+            {isLoading ? (<Loader />) : (<TodaySales products= {products}/>)}
             <ProdByCategory />
-            <BestSellingProducts products= {products}/>
+            {isLoading ? (<Loader />) : (<BestSellingProducts products= {products}/>)}
         </div>
     )
 }

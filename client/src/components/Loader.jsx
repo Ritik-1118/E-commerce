@@ -3,7 +3,7 @@ const Loader = () => {
     return (
         <>
             <div className="flex  justify-center h-screen items-center">
-                <span className="loader">Loading....</span>
+                <span className="loader"></span>
             </div>
         </>
     );
